@@ -13,8 +13,12 @@ public class TempoGatorosSalvosScore : MonoBehaviour {
     int eoq;
     int conversor;
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         score = 0;
+        tempo = GameObject.Find("Canvas/Tempo");
+        Score = GameObject.Find("Canvas/Score");
+        criancasalva = GameObject.Find("Canvas/Garotos Salvos");
         //Define o tempo limite da fase 1
         if (SelecaoDeFases.faseselecionada == 1)
         {
@@ -39,10 +43,6 @@ public class TempoGatorosSalvosScore : MonoBehaviour {
             time = 120;
             conversor = 120;
         }
-        tempo = GameObject.Find("Canvas/Tempo");
-        Score = GameObject.Find("Canvas/Score");
-        criancasalva = GameObject.Find("Canvas/Garotos Salvos");
-
     }
 	// Update is called once per frame
 	void Update () {
@@ -58,7 +58,7 @@ public class TempoGatorosSalvosScore : MonoBehaviour {
                 timescore = 0f;
             }
         }
-        eoq = score;
+        eoq = score + Personagem.scoresalvas;
         Score.gameObject.GetComponent<Text>().text = "Pontuacao: " + eoq.ToString();
     }
 }

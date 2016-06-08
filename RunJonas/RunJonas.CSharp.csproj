@@ -63,12 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Cenas\Vidas.cs" />
     <Compile Include="Assets\Scripts\Botoes.cs" />
     <Compile Include="Assets\Scripts\BotoesMenu.cs" />
     <Compile Include="Assets\Scripts\BotoesPause.cs" />
     <Compile Include="Assets\Scripts\DerrotaOverdose.cs" />
     <Compile Include="Assets\Scripts\DerrotaTempo.cs" />
+    <Compile Include="Assets\Scripts\FadeInAndFadeOut.cs" />
+    <Compile Include="Assets\Scripts\FadeInAndFadeOutCanvas.cs" />
     <Compile Include="Assets\Scripts\Ganhou.cs" />
     <Compile Include="Assets\Scripts\MoveDrogas.cs" />
     <Compile Include="Assets\Scripts\MoverCenario.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Scripts\SelecaoDeFases.cs" />
     <Compile Include="Assets\Scripts\SpawnDrogas.cs" />
     <Compile Include="Assets\Scripts\TempoGatorosSalvosScore.cs" />
+    <Compile Include="Assets\Scripts\Vidas.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

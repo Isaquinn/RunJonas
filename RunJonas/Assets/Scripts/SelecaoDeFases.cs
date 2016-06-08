@@ -7,11 +7,13 @@ public class SelecaoDeFases : MonoBehaviour {
     public static string fases = "fases";
     public static string faseselecionadafase = "fasesselecionada";
     private GameObject[] caixas = new GameObject[5];
+    bool fase1, fase2, fase3;
     // Use this for initialization
     void Start () {
         fase = PlayerPrefs.GetInt(fases, 0);
         caixas[1] = GameObject.Find("Fase2");
         caixas[2] = GameObject.Find("Fase3");
+        fase1 = false; fase2 = false; fase3 = false;
     }
 
     // Update is called once per frame
@@ -35,7 +37,8 @@ public class SelecaoDeFases : MonoBehaviour {
             //Caso clicaco na fase 1, abre a fase 1
             if (hit.collider.tag == "fase1")
             {
-                Application.LoadLevel("Fase1");
+                fase1 = true;
+                FadeInAndFadeOut.black = true;
                 faseselecionada = 1;
                 PlayerPrefs.SetInt(faseselecionadafase, 1);
                 PlayerPrefs.Save();
@@ -45,14 +48,16 @@ public class SelecaoDeFases : MonoBehaviour {
             {
                 if (hit.collider.tag == "fase1")
                 {
-                    Application.LoadLevel("Fase2");
+                    fase1 = true;
+                    FadeInAndFadeOut.black = true;
                     faseselecionada = 1;
                     PlayerPrefs.SetInt(faseselecionadafase, 1);
                     PlayerPrefs.Save();
                 }
                 if (hit.collider.tag == "fase2")
                 {
-                    Application.LoadLevel("Fase2");
+                    fase2 = true;
+                    FadeInAndFadeOut.black = true;
                     faseselecionada = 2;
                     PlayerPrefs.SetInt(faseselecionadafase, 2);
                     PlayerPrefs.Save();
@@ -64,27 +69,45 @@ public class SelecaoDeFases : MonoBehaviour {
             {
                 if (hit.collider.tag == "fase1")
                 {
-                    Application.LoadLevel("Fase2");
+                    fase1 = true;
+                    FadeInAndFadeOut.black = true;
                     faseselecionada = 1;
                     PlayerPrefs.SetInt(faseselecionadafase, 1);
                     PlayerPrefs.Save();
                 }
                 if (hit.collider.tag == "fase2")
                 {
-                    Application.LoadLevel("Fase2");
+                    fase2 = true;
+                    FadeInAndFadeOut.black = true;
                     faseselecionada = 2;
                     PlayerPrefs.SetInt(faseselecionadafase, 2);
                     PlayerPrefs.Save();
                 }
                 if (hit.collider.tag == "fase3")
                 {
-                    Application.LoadLevel("Fase3");
+                    fase3 = true;
+                    FadeInAndFadeOut.black = true;
                     faseselecionada = 3;
                     PlayerPrefs.SetInt(faseselecionadafase, 3);
                     PlayerPrefs.Save();
                 }
 
             }
+
+        }
+        if (FadeInAndFadeOut.fadeoutspeed2 <= 0f && fase1 == true)
+        {
+            Application.LoadLevel("Fase1");
+
+        }
+        if (FadeInAndFadeOut.fadeoutspeed2 <= 0f && fase2 == true)
+        {
+            Application.LoadLevel("Fase2");
+
+        }
+        if (FadeInAndFadeOut.fadeoutspeed2 <= 0f && fase3 == true)
+        {
+            Application.LoadLevel("Fase3");
 
         }
     }

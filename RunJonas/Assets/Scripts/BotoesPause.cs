@@ -7,12 +7,14 @@ public class BotoesPause : MonoBehaviour {
     GameObject BotaoSom;
     public static int sons = 0;
     public static string somsalvo = "som";
+    bool menu = false;
     // Use this for initialization
     void Start () {
         //Chama o estado do botão som caso a fase seja reiniciada
         BotoesPause.sons = PlayerPrefs.GetInt(BotoesPause.somsalvo, 0);
         som = gameObject.GetComponent<Image>();
         BotaoSom = GameObject.Find("Pause/Som");
+        menu = false;
     }
 
     // Retorna ao jogo
@@ -31,7 +33,9 @@ public class BotoesPause : MonoBehaviour {
     // Vai para o Menu
     public void Menu()
     {
-        Application.LoadLevel("Menu");
+        FadeInAndFadeOutCanvas.canvasfade.SetActive(true);
+        menu = true;
+        FadeInAndFadeOutCanvas.black = true;
         //Botoes.numberpause += 1;
     }
     // Controlado de audio(liga/desliga)
@@ -51,6 +55,10 @@ public class BotoesPause : MonoBehaviour {
         {
             BotaoSom.GetComponent<Image>().sprite = Resources.Load<Sprite>("SOM");
             sons = 0;
+        }
+        if (  menu == true)
+        {
+            Application.LoadLevel("Menu");
         }
      }
 }

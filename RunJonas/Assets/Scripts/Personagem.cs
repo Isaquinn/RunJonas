@@ -14,6 +14,7 @@ public class Personagem : MonoBehaviour {
     // Funcao Start
     void Start()
     {
+        scoresalvas = 0;
         Botoes.numberpause = 2;
         vidas = 3;
         Pause = GameObject.Find("Pause");
